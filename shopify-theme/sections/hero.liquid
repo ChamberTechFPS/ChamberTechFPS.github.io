@@ -1,0 +1,63 @@
+{%- assign s = section.settings -%}
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="stack-lg">
+      <h1>{{ s.heading | escape }}</h1>
+      {%- if s.text != blank -%}<p class="lede">{{ s.text | escape }}</p>{%- endif -%}
+      {%- if s.product != blank -%}
+        <div><a class="btn btn--primary btn--lg" href="{{ s.product.url }}">Book a session</a></div>
+      {%- endif -%}
+    </div>
+
+    {%- if s.before_ms != blank and s.after_ms != blank -%}
+      <figure class="bench">
+        <figcaption class="bench__title">{{ s.bench_title | escape }}</figcaption>
+        {% render 'bench-chart', before: s.before_ms, after: s.after_ms %}
+        <div class="readouts">
+          {%- for i in (1..2) -%}
+            {%- liquid
+              if i == 1
+                assign name = 'Average FPS'
+                assign from = s.avg_before
+                assign to = s.avg_after
+              else
+                assign name = '1% low FPS'
+                assign from = s.low_before
+                assign to = s.low_after
+              endif
+              assign base = from | at_least: 1
+              assign delta = to | minus: from | times: 100.0 | divided_by: base | round
+            -%}
+            <div class="readout">
+              <div class="readout__label">{{ name }}</div>
+              <div class="readout__value"><span class="readout__from">{{ from }}</span><span class="readout__to">{{ to }}</span></div>
+              <div class="readout__delta">{% if delta > 0 %}+{% endif %}{{ delta }}%</div>
+            </div>
+          {%- endfor -%}
+        </div>
+        <p class="bench__method">{{ s.method | escape }}</p>
+      </figure>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "product", "id": "product", "label": "Book button" },
+    { "type": "header", "content": "Benchmark (from a real session)" },
+    { "type": "text", "id": "bench_title", "label": "Game and hardware" },
+    { "type": "number", "id": "avg_before", "label": "Average FPS before" },
+    { "type": "number", "id": "avg_after", "label": "Average FPS after" },
+    { "type": "number", "id": "low_before", "label": "1% low FPS before" },
+    { "type": "number", "id": "low_after", "label": "1% low FPS after" },
+    { "type": "textarea", "id": "before_ms", "label": "Frametimes before (ms, comma separated)" },
+    { "type": "textarea", "id": "after_ms", "label": "Frametimes after (ms, comma separated)" },
+    { "type": "text", "id": "method", "label": "Method" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

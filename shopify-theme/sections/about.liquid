@@ -1,0 +1,39 @@
+<section class="section" id="about">
+  <div class="wrap about">
+    <img src="{{ 'chamber.jpg' | asset_url }}" width="144" height="144" alt="Chamber" loading="lazy">
+    <div class="stack-lg">
+      <div class="stack">
+        <h2>{{ section.settings.heading | escape }}</h2>
+        <p class="lede">{{ section.settings.text | escape }}</p>
+      </div>
+      {%- if section.blocks.size > 0 -%}
+        <div class="stats">
+          {%- for block in section.blocks -%}
+            <div {{ block.shopify_attributes }}><b>{{ block.settings.value | escape }}</b><span class="meta">{{ block.settings.label | escape }}</span></div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "text", "label": "Text" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Number" },
+        { "type": "text", "id": "label", "label": "Label" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "About" }]
+}
+{% endschema %}

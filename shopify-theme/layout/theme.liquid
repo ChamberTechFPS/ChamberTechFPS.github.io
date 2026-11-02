@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    {% render 'meta-tags' %}
+    <meta name="theme-color" content="#111115">
+    <link rel="icon" type="image/png" href="{{ 'ct-mark.png' | asset_url }}">
+    {{ 'InterVariable.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+    {{ 'ct.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+
+  <body>
+    <a class="skip btn btn--primary" href="#main">Skip to content</a>
+    {% section 'header' %}
+    <main id="main">
+      {{ content_for_layout }}
+    </main>
+    {% section 'footer' %}
+  </body>
+</html>

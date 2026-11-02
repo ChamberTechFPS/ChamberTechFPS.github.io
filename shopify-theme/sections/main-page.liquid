@@ -1,0 +1,12 @@
+<section class="section">
+  <div class="wrap narrow stack-lg">
+    <h1 class="h2">{{ page.title | escape }}</h1>
+    <div class="prose">{{ page.content }}</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page"
+}
+{% endschema %}

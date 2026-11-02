@@ -1,0 +1,74 @@
+{%- doc -%}
+  Frametime chart, before vs after. Scales itself and labels each line at its average.
+  @param {string} before - comma-separated frametimes in ms
+  @param {string} after - comma-separated frametimes in ms
+{%- enddoc -%}
+{%- liquid
+  # viewBox 400x200. Plot: x 30..344, y 12..180. Line labels sit right of the plot.
+  assign top = 0
+  assign all = before | append: ',' | append: after | split: ','
+  for raw in all
+    assign v = raw | strip | times: 1.0
+    if v > top
+      assign top = v
+    endif
+  endfor
+  assign max = top | divided_by: 5.0 | ceil | times: 5 | at_least: 5
+  assign tick = 5
+  if max > 30
+    assign tick = 10
+  endif
+  assign ticks = max | divided_by: tick
+-%}
+<svg class="bench__chart" viewBox="0 0 400 200" role="img" aria-label="Frametime in milliseconds, before and after. Lower is smoother.">
+  {%- for t in (0..ticks) -%}
+    {%- assign ms = t | times: tick -%}
+    {%- assign y = max | minus: ms | times: 168.0 | divided_by: max | plus: 12 -%}
+    <line class="grid" x1="30" x2="344" y1="{{ y }}" y2="{{ y }}"/>
+    <text x="24" y="{{ y | plus: 4 }}" text-anchor="end">{{ ms }}</text>
+  {%- endfor -%}
+  <text x="24" y="196" text-anchor="end">ms</text>
+  {%- for pair in (1..2) -%}
+    {%- liquid
+      if pair == 1
+        assign series = before | split: ','
+        assign cls = 'before'
+      else
+        assign series = after | split: ','
+        assign cls = 'after'
+      endif
+      assign last = series.size | minus: 1 | at_least: 1
+      assign step = 314.0 | divided_by: last
+      assign sum = 0.0
+    -%}
+    <path class="{{ cls }}" d="
+      {%- for raw in series -%}
+        {%- liquid
+          assign v = raw | strip | times: 1.0
+          assign sum = sum | plus: v
+          assign x = forloop.index0 | times: step | plus: 30 | round: 1
+          assign y = max | minus: v | times: 168.0 | divided_by: max | plus: 12 | round: 1
+        -%}
+        {%- if forloop.first %}M{% else %}L{% endif %}{{ x }} {{ y }}
+      {%- endfor -%}
+    "/>
+    {%- liquid
+      assign avg = sum | divided_by: series.size
+      assign label_y = max | minus: avg | times: 168.0 | divided_by: max | plus: 16 | round: 1
+      if pair == 1
+        assign before_y = label_y
+      else
+        assign after_y = label_y
+      endif
+    -%}
+  {%- endfor -%}
+  {%- liquid
+    # keep the two labels from overlapping; before (slower) sits above
+    assign gap = after_y | minus: before_y
+    if gap < 18
+      assign before_y = after_y | minus: 18
+    endif
+  -%}
+  <text class="before" x="350" y="{{ before_y }}">Before</text>
+  <text class="after" x="350" y="{{ after_y }}">After</text>
+</svg>

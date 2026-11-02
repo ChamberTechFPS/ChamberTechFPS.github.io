@@ -1,0 +1,24 @@
+<section class="section">
+  <div class="wrap narrow stack-lg">
+    <h1 class="h2">Cart</h1>
+    {%- if cart.item_count == 0 -%}
+      <div><a class="btn btn--primary" href="{{ routes.root_url }}#services">See services</a></div>
+    {%- else -%}
+      <form action="{{ routes.cart_url }}" method="post" class="stack-lg">
+        <ul class="rows">
+          {%- for item in cart.items -%}
+            <li>
+              <span class="stack">
+                <a href="{{ item.url }}">{{ item.product.title | escape }}</a>
+                <a class="meta" href="{{ item.url_to_remove }}">Remove</a>
+              </span>
+              <span class="num">{{ item.final_line_price | money }}</span>
+            </li>
+          {%- endfor -%}
+          <li><strong>Total</strong><strong class="num">{{ cart.total_price | money }}</strong></li>
+        </ul>
+        <div><button class="btn btn--primary btn--lg" type="submit" name="checkout">Check out</button></div>
+      </form>
+    {%- endif -%}
+  </div>
+</section>

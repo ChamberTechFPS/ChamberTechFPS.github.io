@@ -1,0 +1,53 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product"
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "heading": "Questions"
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "What happens after I pay?",
+            "answer": "<p>I email you to pick a time. The session takes about two hours over RustDesk, with a Discord call for the BIOS steps.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "What do I need?",
+            "answer": "<p>A Windows PC with RustDesk installed, and Discord on your phone.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Can I get a refund?",
+            "answer": "<p>Yes, within 14 days of purchase.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Is overclocking safe for my parts?",
+            "answer": "<p>Write this answer before publishing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "faq"
+  ]
+}

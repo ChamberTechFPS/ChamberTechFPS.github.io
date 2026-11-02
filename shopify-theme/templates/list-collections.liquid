@@ -1,0 +1,10 @@
+<section class="section">
+  <div class="wrap stack-lg">
+    <h1 class="h2">Collections</h1>
+    <ul class="rows">
+      {%- for collection in collections -%}
+        <li><a href="{{ collection.url }}">{{ collection.title | escape }}</a></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+{
+  "current": {
+    "social_youtube": "https://www.youtube.com/channel/UCDqCaOH3PiFDSbv3CMBFkwg",
+    "social_discord": "https://discord.gg/TG4djSaZ2w",
+    "social_x": "https://x.com/chambertech_",
+    "social_tiktok": "https://www.tiktok.com/@chambertech_",
+    "social_instagram": "https://www.instagram.com/chambertech_",
+    "social_github": "https://github.com/ChamberTechFPS/Chamber-Playbook",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu",
+          "book_product": "chambertech-full-pc-overclock-optimization"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      }
+    }
+  }
+}

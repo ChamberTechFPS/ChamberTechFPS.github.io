@@ -1,0 +1,29 @@
+{%- assign variant = product.selected_or_first_available_variant -%}
+<section class="section">
+  <div class="wrap product">
+    <div class="stack-lg">
+      <h1 class="h2">{{ product.title | escape }}</h1>
+      <div class="prose">{{ product.description }}</div>
+    </div>
+
+    <div class="panel product__buy">
+      <div class="offer__price">{{ variant.price | money_without_trailing_zeros }}</div>
+      {%- form 'product', product, class: 'stack-lg' -%}
+        <input type="hidden" name="id" value="{{ variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="return_to" value="/checkout">
+        <label class="check">
+          <input type="checkbox" name="properties[Remote access consent]" value="Yes" required>
+          <span>I allow ChamberTech to connect to my PC remotely during the session.</span>
+        </label>
+        <button class="btn btn--primary btn--lg" type="submit" {% unless variant.available %}disabled{% endunless %}>Book</button>
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Service"
+}
+{% endschema %}

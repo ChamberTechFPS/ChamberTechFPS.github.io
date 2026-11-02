@@ -1,0 +1,26 @@
+{%- assign socials = 'YouTube,Discord,X,TikTok,Instagram,GitHub' | split: ',' -%}
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <a class="brand" href="{{ routes.root_url }}">
+      <img src="{{ 'ct-mark.png' | asset_url }}" width="32" height="32" alt="" loading="lazy">
+      {{- shop.name -}}
+    </a>
+    {%- for name in socials -%}
+      {%- assign key = 'social_' | append: name | downcase -%}
+      {%- if settings[key] != blank -%}
+        <a href="{{ settings[key] }}" rel="me noopener" target="_blank">{{ name }}</a>
+      {%- endif -%}
+    {%- endfor -%}
+    {%- for policy in shop.policies -%}
+      {%- if policy.body != blank -%}
+        <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer"
+}
+{% endschema %}

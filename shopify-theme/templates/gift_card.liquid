@@ -1,0 +1,16 @@
+{% layout none %}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    {% render 'meta-tags' %}
+    {{ 'ct.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body>
+    <main class="wrap narrow stack-lg section">
+      <h1>{{ gift_card.balance | money }}</h1>
+      {%- if gift_card.enabled == false or gift_card.expired -%}<p class="error">Expired</p>{%- endif -%}
+      <p class="panel num"><strong>{{ gift_card.code | format_code }}</strong></p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<section class="section" id="free">
+  <div class="wrap stack-lg">
+    <h2>{{ section.settings.heading | escape }}</h2>
+    <div class="grid-2">
+      {%- for block in section.blocks -%}
+        <article class="panel offer" {{ block.shopify_attributes }}>
+          <div class="stack">
+            <h3>{{ block.settings.title | escape }}</h3>
+            <p>{{ block.settings.text | escape }}</p>
+          </div>
+          {%- if block.settings.url != blank -%}
+            <a class="btn btn--outline" href="{{ block.settings.url }}">{{ block.settings.button | escape }}</a>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Free tools",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Free tools" }
+  ],
+  "blocks": [
+    {
+      "type": "tool",
+      "name": "Tool",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Name" },
+        { "type": "textarea", "id": "text", "label": "Description" },
+        { "type": "url", "id": "url", "label": "Button link" },
+        { "type": "text", "id": "button", "label": "Button", "default": "Download" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Free tools" }]
+}
+{% endschema %}

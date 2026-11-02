@@ -1,0 +1,45 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "ChamberTech",
+    "theme_version": "1.0.0",
+    "theme_author": "ChamberTech",
+    "theme_documentation_url": "https://www.chambertech.net",
+    "theme_support_url": "https://www.chambertech.net"
+  },
+  {
+    "name": "Social links",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_youtube",
+        "label": "YouTube"
+      },
+      {
+        "type": "text",
+        "id": "social_discord",
+        "label": "Discord"
+      },
+      {
+        "type": "text",
+        "id": "social_x",
+        "label": "X"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "text",
+        "id": "social_github",
+        "label": "GitHub"
+      }
+    ]
+  }
+]

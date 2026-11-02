@@ -1,0 +1,46 @@
+<section class="section" id="services">
+  <div class="wrap stack-lg">
+    <h2>{{ section.settings.heading | escape }}</h2>
+    <div class="grid-2">
+      {%- for block in section.blocks -%}
+        {%- assign p = block.settings.product -%}
+        {%- if p != blank -%}
+          <article class="panel offer" {{ block.shopify_attributes }}>
+            <div class="stack">
+              <h3>{{ p.title | escape }}</h3>
+              <div class="offer__price">{{ p.price | money_without_trailing_zeros }}</div>
+            </div>
+            <ul class="offer__list">
+              {%- assign items = block.settings.items | newline_to_br | split: '<br />' -%}
+              {%- for item in items -%}
+                {%- assign item = item | strip -%}
+                {%- if item != blank -%}<li>{{ item | escape }}</li>{%- endif -%}
+              {%- endfor -%}
+            </ul>
+            <a class="btn btn--outline" href="{{ p.url }}">Book</a>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Services",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Services" }
+  ],
+  "blocks": [
+    {
+      "type": "offer",
+      "name": "Service",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "textarea", "id": "items", "label": "What's included (one per line)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Services" }]
+}
+{% endschema %}

@@ -1,0 +1,13 @@
+<section class="section">
+  <div class="wrap narrow stack-lg">
+    <h1 class="h2">{{ blog.title | escape }}</h1>
+    {%- paginate blog.articles by 12 -%}
+      <ul class="rows">
+        {%- for article in blog.articles -%}
+          <li><a href="{{ article.url }}">{{ article.title | escape }}</a><span class="meta">{{ article.published_at | date: '%Y-%m-%d' }}</span></li>
+        {%- endfor -%}
+      </ul>
+      {{ paginate | default_pagination }}
+    {%- endpaginate -%}
+  </div>
+</section>

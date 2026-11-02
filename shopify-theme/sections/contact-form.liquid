@@ -1,0 +1,27 @@
+<section class="section">
+  <div class="wrap narrow">
+    {%- form 'contact', class: 'stack-lg' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="notice" role="status">Sent. I'll reply by email.</p>
+      {%- elsif form.errors -%}
+        <div class="notice error" role="alert">{{ form.errors | default_errors }}</div>
+      {%- endif -%}
+      <div class="field">
+        <label for="contact-email">Email</label>
+        <input id="contact-email" type="email" name="contact[email]" autocomplete="email" required value="{{ form.email | escape }}">
+      </div>
+      <div class="field">
+        <label for="contact-body">Message</label>
+        <textarea id="contact-body" name="contact[body]" rows="6" required>{{ form.body | escape }}</textarea>
+      </div>
+      <div><button class="btn btn--primary" type="submit">Send</button></div>
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact form",
+  "presets": [{ "name": "Contact form" }]
+}
+{% endschema %}

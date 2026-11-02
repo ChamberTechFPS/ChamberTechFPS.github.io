@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="{{ routes.root_url }}">
+      <img src="{{ 'ct-mark.png' | asset_url }}" width="32" height="32" alt="">
+      {{- shop.name -}}
+    </a>
+    <nav class="nav" aria-label="Main">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+      {%- endfor -%}
+      {%- if cart.item_count > 0 -%}
+        <a href="{{ routes.cart_url }}">Cart ({{ cart.item_count }})</a>
+      {%- endif -%}
+      {%- if section.settings.book_product != blank -%}
+        <a class="btn btn--ghost" href="{{ section.settings.book_product.url }}">Book</a>
+      {%- endif -%}
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "product", "id": "book_product", "label": "Book button" }
+  ]
+}
+{% endschema %}

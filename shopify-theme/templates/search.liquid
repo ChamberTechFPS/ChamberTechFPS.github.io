@@ -1,0 +1,23 @@
+<section class="section">
+  <div class="wrap narrow stack-lg">
+    <h1 class="h2">Search</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="field">
+      <label for="q">Search the site</label>
+      <input id="q" type="search" name="q" value="{{ search.terms | escape }}">
+    </form>
+    {%- if search.performed -%}
+      {%- if search.results_count == 0 -%}
+        <p>No results for “{{ search.terms | escape }}”.</p>
+      {%- else -%}
+        {%- paginate search.results by 20 -%}
+          <ul class="rows">
+            {%- for result in search.results -%}
+              <li><a href="{{ result.url }}">{{ result.title | escape }}</a>{%- if result.price -%}<span class="num">{{ result.price | money }}</span>{%- endif -%}</li>
+            {%- endfor -%}
+          </ul>
+          {{ paginate | default_pagination }}
+        {%- endpaginate -%}
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>

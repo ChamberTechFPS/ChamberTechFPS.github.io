@@ -1,0 +1,160 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading": "More FPS from the PC you already own.",
+        "text": "Tuned by hand, remotely. Every session ends with your before-and-after numbers.",
+        "product": "chambertech-full-pc-overclock-optimization",
+        "bench_title": "Sample data. Replace with a real session before publishing.",
+        "avg_before": 212,
+        "avg_after": 298,
+        "low_before": 96,
+        "low_after": 181,
+        "before_ms": "11.98, 4.4, 4.61, 4.42, 4.61, 4.27, 4.59, 4.42, 4.29, 4.76, 4.24, 4.45, 4.42, 4.51, 4.42, 4.57, 4.72, 4.5, 4.62, 4.4, 4.27, 4.29, 4.58, 4.28, 4.73, 4.21, 10.42, 4.34, 4.74, 12.15, 4.31, 4.36, 4.23, 4.5, 4.28, 12.13, 4.45, 4.44, 4.54, 4.4, 4.39, 4.72, 4.28, 4.77, 4.3, 4.5, 4.22, 4.63, 4.46, 4.75, 4.22, 4.74, 4.26, 4.77, 4.6, 4.45, 4.45, 4.78, 4.27, 4.25, 4.49, 4.39, 4.25, 4.66, 4.68, 4.44, 4.63, 4.73, 4.49, 4.25, 4.64, 4.34, 4.68, 4.47, 4.36, 4.31, 4.69, 4.27, 8.1, 4.3, 4.31, 11.61, 4.63, 4.67, 4.26, 4.55, 4.58, 4.23, 4.6, 4.5, 4.67, 4.31, 4.77, 4.36, 4.37, 4.54, 4.34, 4.58, 4.51, 4.78, 4.56, 4.64, 4.43, 4.25, 4.58, 11.9, 4.44, 12.29, 8.52, 4.69, 4.35, 4.5, 4.66, 4.63, 4.71, 4.68, 4.32, 4.58, 4.32, 4.52",
+        "after_ms": "3.26, 3.43, 3.39, 3.41, 3.34, 3.35, 3.37, 3.3, 3.29, 3.37, 3.28, 3.26, 3.3, 3.25, 3.33, 3.27, 3.39, 3.41, 3.28, 3.32, 3.45, 3.22, 3.24, 3.48, 3.47, 3.27, 3.42, 3.46, 3.24, 3.48, 3.49, 3.27, 3.43, 3.21, 3.41, 3.5, 3.27, 3.27, 3.31, 3.42, 3.5, 3.48, 3.35, 3.34, 3.4, 3.43, 3.29, 3.29, 3.22, 3.47, 3.43, 3.21, 4.43, 3.26, 3.27, 3.4, 3.22, 3.25, 3.26, 3.28, 3.5, 4.4, 3.27, 3.33, 3.4, 3.35, 3.4, 3.45, 3.49, 3.3, 3.49, 3.44, 3.39, 3.46, 3.41, 3.38, 3.3, 3.29, 3.21, 3.26, 3.24, 3.43, 3.49, 3.41, 3.21, 3.28, 3.44, 3.41, 3.44, 3.45, 3.42, 3.42, 3.49, 3.48, 3.26, 3.24, 3.22, 3.34, 3.41, 3.43, 3.44, 3.39, 3.35, 3.31, 3.24, 3.21, 3.47, 3.39, 3.43, 3.3, 3.46, 3.46, 3.49, 3.3, 3.4, 3.45, 3.21, 3.46, 3.37, 3.43",
+        "method": "CapFrameX, 60-second replay, same scene and settings."
+      }
+    },
+    "services": {
+      "type": "offers",
+      "settings": {
+        "heading": "Services"
+      },
+      "blocks": {
+        "oc": {
+          "type": "offer",
+          "settings": {
+            "product": "chambertech-full-pc-overclock-optimization",
+            "items": "CPU, RAM and GPU overclocks\nWindows, driver and game settings\nBIOS changes with you on a Discord call\nBefore-and-after benchmark\nAbout two hours over RustDesk"
+          }
+        },
+        "sb": {
+          "type": "offer",
+          "settings": {
+            "product": "enable-secure-boot-tpm",
+            "items": "Required by Valorant, Call of Duty, Battlefield and Fortnite\nSecure Boot and TPM 2.0 turned on in your BIOS\nDone over Discord within 24 hours"
+          }
+        }
+      },
+      "block_order": [
+        "oc",
+        "sb"
+      ]
+    },
+    "free": {
+      "type": "free-tools",
+      "settings": {
+        "heading": "Free tools"
+      },
+      "blocks": {
+        "pb": {
+          "type": "tool",
+          "settings": {
+            "title": "Chamber Playbook",
+            "text": "Windows 11, set up for competitive gaming in one run.",
+            "url": "https://github.com/ChamberTechFPS/Playbook/releases/latest/download/Chamber.apbx",
+            "button": "Download"
+          }
+        },
+        "go": {
+          "type": "tool",
+          "settings": {
+            "title": "Chamber Game Optimizer",
+            "text": "Coming soon. Competitive settings for your games, applied in one click. Supporters on Discord get it first.",
+            "url": "https://discord.gg/TG4djSaZ2w",
+            "button": "Join the Discord"
+          }
+        }
+      },
+      "block_order": [
+        "pb",
+        "go"
+      ]
+    },
+    "about": {
+      "type": "about",
+      "settings": {
+        "heading": "I'm Chamber.",
+        "text": "I've tuned hundreds of gaming PCs since I built my first eight years ago. You watch every change I make, and you keep the numbers."
+      },
+      "blocks": {
+        "a": {
+          "type": "stat",
+          "settings": {
+            "value": "3.6K",
+            "label": "YouTube subscribers"
+          }
+        },
+        "b": {
+          "type": "stat",
+          "settings": {
+            "value": "320",
+            "label": "videos"
+          }
+        },
+        "c": {
+          "type": "stat",
+          "settings": {
+            "value": "1,200+",
+            "label": "Discord members"
+          }
+        }
+      },
+      "block_order": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "heading": "Questions"
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "What happens after I pay?",
+            "answer": "<p>I email you to pick a time. The session takes about two hours over RustDesk, with a Discord call for the BIOS steps.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "What do I need?",
+            "answer": "<p>A Windows PC with RustDesk installed, and Discord on your phone.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Can I get a refund?",
+            "answer": "<p>Yes, within 14 days of purchase.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Is overclocking safe for my parts?",
+            "answer": "<p>Write this answer before publishing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "services",
+    "free",
+    "about",
+    "faq"
+  ]
+}

@@ -1,0 +1,13 @@
+<section class="section">
+  <div class="wrap narrow stack-lg">
+    <h1 class="h2">{{ collection.title | escape }}</h1>
+    {%- paginate collection.products by 24 -%}
+      <ul class="rows">
+        {%- for product in collection.products -%}
+          <li><a href="{{ product.url }}">{{ product.title | escape }}</a><span class="num">{{ product.price | money_without_trailing_zeros }}</span></li>
+        {%- endfor -%}
+      </ul>
+      {{ paginate | default_pagination }}
+    {%- endpaginate -%}
+  </div>
+</section>
